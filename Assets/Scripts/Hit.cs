@@ -11,7 +11,7 @@ public class Hit : MonoBehaviour
 
     [SerializeField]
     private UnityEvent hitEvent;
-
+    /*
     public void ResetExit()
     {
         gameObject.transform.position = new Vector3
@@ -31,7 +31,7 @@ public class Hit : MonoBehaviour
             gameObject.transform.position.z
             );
     }
-
+    */
     void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Player")
