@@ -10,38 +10,23 @@ public class Hit : MonoBehaviour
     private bool isTrapNotExit = true;
 
     [SerializeField]
-    private UnityEvent hitEvent;
-    /*
-    public void ResetExit()
-    {
-        gameObject.transform.position = new Vector3
-            (
-                gameObject.transform.position.x,
-                0.01f,
-                gameObject.transform.position.z
-            );
-    }
+    private UnityEvent winEvent;
 
-    public void ResetBall()
-    {
-        gameObject.transform.position = new Vector3
-            (
-            gameObject.transform.position.x,
-            0.05f,
-            gameObject.transform.position.z
-            );
-    }
-    */
+    [SerializeField]
+    private UnityEvent loseEvent;
+
     void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Player")
         {
             if (isTrapNotExit)
-                c.gameObject.SetActive(false);
+            {
+                loseEvent.Invoke();
+            }
             else
-                SceneManager.LoadScene(0);   
-            
-            hitEvent.Invoke();
+            {
+                winEvent.Invoke();  
+            }
         }
     }
 }
