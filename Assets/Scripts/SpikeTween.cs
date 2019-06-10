@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTween : MonoBehaviour 
+public class SpikeTween : MonoBehaviour
 {
     [SerializeField]
     private float amount = 1f;
@@ -10,7 +10,12 @@ public class SpikeTween : MonoBehaviour
     [SerializeField]
     private string axis = "x";
 
-    void Start(){
-        iTween.MoveBy(gameObject, iTween.Hash(axis, amount, "easeType", "easeInOutExpo", "loopType", "pingPong", "time", Random.Range(0.25f, 0.5f)));
+    [SerializeField]
+    private bool startOnSceneLoad = true;
+
+    void Start()
+    {
+        if (startOnSceneLoad)
+            iTween.MoveBy(gameObject, iTween.Hash(axis, amount, "easeType", "easeInOutExpo", "loopType", "pingPong", "time", 0.5f));
     }
 }

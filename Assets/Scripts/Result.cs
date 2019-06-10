@@ -20,7 +20,7 @@ public class Result : MonoBehaviour
 	
     IEnumerator Win()
     {
-        yield return new WaitForSeconds(1.0f);   
+        yield return new WaitForSeconds(4.0f);   
         textObject.text = "3";
         yield return new WaitForSeconds(1.0f);   
         textObject.text = "2";
