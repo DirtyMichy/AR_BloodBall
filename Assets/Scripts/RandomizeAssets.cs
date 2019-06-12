@@ -12,10 +12,17 @@ public class RandomizeAssets : MonoBehaviour
         Debug.Log ("StartRandomization");
         for (int i = 0; i < mazeAssets.Length; i++)
         {
-            Vector3 temp = mazeAssets[i].transform.localPosition;
             int r = Random.Range(0, mazeAssets.Length);
-            mazeAssets[i].transform.localPosition = mazeAssets[r].transform.localPosition;
-            mazeAssets[r].transform.localPosition = temp;
+
+            Vector3 temp1 = mazeAssets[i].transform.localPosition;
+            Vector3 temp2 = mazeAssets[r].transform.localPosition;  
+
+            // Localpositions have to be resetted, otherwise object spawn higher or lower
+            temp1.y = 0.02f;            
+            temp2.y = 0.02f; 
+
+            mazeAssets[i].transform.localPosition = temp2;
+            mazeAssets[r].transform.localPosition = temp1;
         }
     }
 }
