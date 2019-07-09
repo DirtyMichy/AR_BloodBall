@@ -12,24 +12,32 @@ public class Result : MonoBehaviour
     [SerializeField]
     private Text textObject;
 
+    private bool stopTimer = false;
+
     // Use this for initialization
-    public void StartWinTimer()
+    public void StartStartTimer()
     {
-        StartCoroutine(Win());		
+        stopTimer = false;
+        StartCoroutine(RdyTimer());		
     }
 	
-    IEnumerator Win()
+    public void StopTimer()
     {
-        yield return new WaitForSeconds(4.0f);   
-        textObject.text = "3";
-        yield return new WaitForSeconds(1.0f);   
-        textObject.text = "2";
-        yield return new WaitForSeconds(1.0f);   
-        textObject.text = "1";
-        yield return new WaitForSeconds(1.0f);   
+        stopTimer = true;
+    }
+
+    IEnumerator RdyTimer()
+    {
+        yield return new WaitForSeconds(4.0f);
+
+        for (int i = 3; i > 0 && !stopTimer; i--)
+        {
+            textObject.text = "" + i;
+            yield return new WaitForSeconds(1.0f);
+        } 
         textObject.text = "";
 
-
-        timerEvent.Invoke();      
+        if(!stopTimer)
+            timerEvent.Invoke();      
     }
 }

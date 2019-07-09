@@ -19,10 +19,10 @@ public class BloodSpawn : MonoBehaviour
     {
         bloods = new GameObject[bloodCount];
 
-        Debug.Log("L: " + bloods.Length);
+//        Debug.Log("L: " + bloods.Length);
         for (int i = 0; i < bloods.Length; i++)
         {
-            GameObject tempBlood = Instantiate(blood, transform.position, blood.transform.rotation);
+            GameObject tempBlood = Instantiate(blood, blood.transform.position, blood.transform.rotation);
             tempBlood.transform.parent = transform.parent;
             tempBlood.GetComponent<SpriteRenderer>().sprite = BloodSprites[i];
             bloods[i] = tempBlood;
