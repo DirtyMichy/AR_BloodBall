@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomGravity : MonoBehaviour 
+public class CustomGravity : MonoBehaviour
 {
     [SerializeField]
-    private float gravity = -9.8f;
+    public float gravity = 0.5f;
 
-    void Update () 
+    void Update()
     {       
-        Vector3 vel = Camera.main.transform.forward;
-        vel.y += gravity * Time.deltaTime;
+        Vector3 vel = Camera.main.transform.forward * gravity;
         GetComponent<Rigidbody>().velocity = vel;
+    }
+
+    public void SetGravity(float newGrav)
+    {
+        gravity = newGrav;
     }
 }

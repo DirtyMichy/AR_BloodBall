@@ -20,7 +20,7 @@ public class Result : MonoBehaviour
         stopTimer = false;
         StartCoroutine(RdyTimer());		
     }
-	
+
     public void StopTimer()
     {
         stopTimer = true;
@@ -37,7 +37,7 @@ public class Result : MonoBehaviour
         } 
         textObject.text = "";
 
-        if(!stopTimer)
+        if (!stopTimer)
             timerEvent.Invoke();      
     }
 }

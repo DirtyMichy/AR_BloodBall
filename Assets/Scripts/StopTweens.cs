@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopTweens : MonoBehaviour 
+public class StopTweens : MonoBehaviour
 {
     public void StopTweensInScene()
     {

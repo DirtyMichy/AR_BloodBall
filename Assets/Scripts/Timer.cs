@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer : MonoBehaviour 
+public class Timer : MonoBehaviour
 {
     private float timerValue = 0f;
 
     [SerializeField]
     private float timerAmount = 0.1f;
 
-	public void StartTimer () 
+    public void StartTimer()
     {
         StopCoroutine(TimerRator());
         timerValue = 0f;
         StartCoroutine(TimerRator());
-	}
+    }
 
     IEnumerator TimerRator()
     {
@@ -24,9 +24,9 @@ public class Timer : MonoBehaviour
             timerValue += timerAmount;
         }
     }
-	
-	float ReturnTime () 
+
+    float ReturnTime()
     {
         return timerValue;
-	}
+    }
 }

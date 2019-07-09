@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MazeTween : MonoBehaviour 
+public class MazeTween : MonoBehaviour
 {
     [SerializeField]
     private float amount = 1f;
