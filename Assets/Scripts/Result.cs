@@ -12,7 +12,7 @@ public class Result : MonoBehaviour
     [SerializeField]
     private Text textObject;
 
-    private bool stopTimer = false;
+    private bool stopTimer = false; //Now that we stop Coroutines via the DetectionLostEvent, this could be unnessarry
 
     // Use this for initialization
     public void StartStartTimer()
